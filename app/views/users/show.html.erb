@@ -1,18 +1,20 @@
-<div>
-  <h3><%= @user.name %></h3>
-  <%= image_tag @user.get_profile_image(100,100) %>
+<div class="flash">
+	<%= flash[:notice] %>
 </div>
 
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+        
+      <%= render 'info', user: @user %>
+      
+      <%= render 'books/new', book: @book %>
+      
+    </div>
 
-
-<% @books.each do |book| %>
-<div>
-  <%= link_to book_path(book.id) do %>
-    <%= image_tag post_image.get_image %>
-  <% end %>
-  <p>投稿ユーザー画像：<%= image_tag post_image.user.get_profile_image(100,100) %></p>
-  <p>ショップ名：<%= post_image.shop_name %></p>
-  <p>説明：<%= post_image.caption %></p>
-  <p>ユーザーネーム：<%= post_image.user.name %></p>
+    <div class="col-md-8 offset-md-1">
+        
+      <%= render 'books/index', books: @books %>
+    </div>
+  </div>
 </div>
-<% end %>
