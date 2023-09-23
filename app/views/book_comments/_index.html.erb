@@ -8,7 +8,9 @@
           <%= book_comment.user.name %>
         <% end %>
       </td>
-      <td><%= book_comment.comment %></td>
+      <td>
+        <%= book_comment.comment %>
+      </td>
       <td>
         <% if book_comment.user == current_user %>
           <%= link_to "Destroy", book_book_comment_path(book, book_comment), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" %>
